@@ -44,7 +44,7 @@ Los Compuestos Orgánicos Volátiles (COV) cuentan una historia similar: fuentes
 
 ```{=html}
 <div class="grafica-container">
-{{< include graficas/emisiones_por_contaminante.html >}}
+{{< include Resources/emisiones_por_contaminante.html >}}
 </div>
 ```
 
@@ -60,7 +60,7 @@ El mapa revela un **país dividido**: Jalisco, Veracruz, Chiapas y el Estado de 
 
 ```{=html}
 <div class="grafica-container">
-{{< include graficas/mapa_pm25.html >}}
+{{< include Resources/pm25_por_estado.html >}}
 </div>
 ```
 
@@ -68,7 +68,7 @@ El desglose por tipo de fuente en cada estado confirma que no existe una sola hi
 
 ```{=html}
 <div class="grafica-container">
-{{< include graficas/pm25_por_fuente_estado.html >}}
+{{< include Resources/pm25_por_fuente_estado.html >}}
 </div>
 ```
 
@@ -86,7 +86,7 @@ Usa los **botones NH₃ / NOx / PM₁₀** para ver cómo el "culpable principal
 
 ```{=html}
 <div class="grafica-container">
-{{< include graficas/ciudades_clave.html >}}
+{{< include Resources/estados_clave_fuente.html >}}
 </div>
 ```
 
@@ -106,6 +106,6 @@ La contaminación del aire no tiene un solo villano. Entender de dónde viene ca
 
 ::: {.callout-note}
 **Fuente de datos:** Inventario Nacional de Emisiones de México (INEM) — SEMARNAT.  
-Descargado de [datos.gob.mx](https://www.datos.gob.mx) en abril de 2025.  
+Descargado de [datos.gob.mx](https://www.datos.gob.mx/dataset/calidad_aire_emisiones_contaminantes) en abril de 2025.  
 Formato original: CSV. Procesamiento en Python (pandas).
 :::
