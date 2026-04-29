@@ -1,0 +1,111 @@
+---
+title: "Lo que el aire no te dice"
+subtitle: "¿Quién contamina más en México, y dónde?"
+author: "Julian Perez Ortega"
+date: today
+lang: es
+format:
+  html:
+    toc: true
+    toc-title: "Contenido"
+    toc-location: left
+    theme: flatly
+    css: styles.css
+    embed-resources: true
+    smooth-scroll: true
+    html-math-method: katex
+execute:
+  echo: false
+---
+
+```{=html}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+```
+
+## Introducción
+
+Cada vez que prendemos el coche, encendemos una estufa o quemamos un campo, liberamos sustancias al aire que otros —y nosotros mismos— terminaremos respirando. México registra anualmente millones de toneladas de emisiones contaminantes de distintas fuentes: industrias, vehículos, actividades agrícolas y hasta procesos naturales del suelo.
+
+Pero **¿cuál contaminante domina realmente? ¿Dónde se concentra el daño más silencioso? ¿Y quién es el verdadero culpable en las ciudades más grandes del país?**
+
+Esta historia recorre tres hallazgos que desafían lo que solemos asumir sobre la contaminación del aire en México, usando datos oficiales del Inventario Nacional de Emisiones (INEM) de la SEMARNAT.
+
+---
+
+## 1 · El villano desconocido {#sec-villano}
+
+> *Cuando pensamos en contaminación, imaginamos grandes chimeneas industriales. Sin embargo, al observar las emisiones totales del país, la realidad es otra.*
+
+El monóxido de carbono (CO) no es el contaminante más famoso, pero es con diferencia el más emitido en México. Y su origen no son las fábricas: la barra del CO en la gráfica de abajo está dominada casi en su totalidad por una sola categoría —**fuentes móviles carreteras**, es decir, los vehículos que circulan por nuestras calles cada día.
+
+Los Compuestos Orgánicos Volátiles (COV) cuentan una historia similar: fuentes de área —pinturas, solventes, actividades domésticas— contribuyen de manera significativa. El amoniaco (NH₃), en cambio, viene mayoritariamente de fuentes de área ligadas a la actividad agropecuaria.
+
+**Explora el hover de cada barra** para ver las toneladas reales detrás del porcentaje.
+
+```{=html}
+<div class="grafica-container">
+{{< include graficas/emisiones_por_contaminante.html >}}
+</div>
+```
+
+---
+
+## 2 · El mapa de la contaminación fina {#sec-mapa}
+
+> *El PM₂.₅ es el asesino silencioso; sus partículas microscópicas penetran profundamente en los pulmones.*
+
+Si el CO es el más abundante, el PM₂.₅ —partículas de menos de 2.5 micrómetros— es el más peligroso para la salud. Son tan pequeñas que atraviesan los alvéolos pulmonares y entran directamente al torrente sanguíneo, asociándose con enfermedades cardiovasculares, cáncer de pulmón y muerte prematura.
+
+El mapa revela un **país dividido**: Jalisco, Veracruz, Chiapas y el Estado de México concentran las emisiones más altas. El norte, con estados como Chihuahua, presenta un perfil distinto: las fuentes naturales (polvo del desierto, incendios) tienen un peso mayor. El centro y sur muestran la huella combinada del tráfico intenso y la quema agrícola.
+
+```{=html}
+<div class="grafica-container">
+{{< include graficas/mapa_pm25.html >}}
+</div>
+```
+
+El desglose por tipo de fuente en cada estado confirma que no existe una sola historia nacional. En algunos estados las fuentes fijas (industria) dominan; en otros, las de área o las naturales:
+
+```{=html}
+<div class="grafica-container">
+{{< include graficas/pm25_por_fuente_estado.html >}}
+</div>
+```
+
+---
+
+## 3 · La huella invisible de la ciudad y el campo {#sec-huella}
+
+> *Si bien los autos son los reyes del CO y los NOx, aparece un contaminante incómodo: el Amoniaco (NH₃).*
+
+Dirigimos la lupa a las cuatro entidades más pobladas del país: Ciudad de México, Estado de México, Jalisco y Nuevo León. En estas zonas metropolitanas, el imaginario colectivo asocia la contaminación al tráfico vehicular. Y para el CO y los NOₓ, esa intuición es correcta.
+
+Pero el NH₃ —amoniaco— cuenta otra historia. Este gas, asociado a la descomposición de residuos orgánicos, fertilizantes y ganadería, **supera con creces a los vehículos en los estados con actividad agropecuaria significativa**. En el Estado de México, las fuentes de área emiten órdenes de magnitud más NH₃ que todas las fuentes móviles juntas.
+
+Usa los **botones NH₃ / NOx / PM₁₀** para ver cómo el "culpable principal" cambia según el contaminante que elijas:
+
+```{=html}
+<div class="grafica-container">
+{{< include graficas/ciudades_clave.html >}}
+</div>
+```
+
+---
+
+## Conclusión
+
+Los datos del INEM pintan un retrato complejo de la contaminación del aire en México:
+
+- El **CO** es el contaminante más emitido y los **vehículos** son su principal fuente —no la industria.
+- El **PM₂.₅**, el más dañino para la salud, se concentra en el centro y sur del país, con perfiles muy distintos según la región.
+- El **NH₃** —frecuentemente ignorado en la conversación urbana— supera a los autos en estados con alta actividad agrícola, incluso dentro de las zonas metropolitanas más grandes.
+
+La contaminación del aire no tiene un solo villano. Entender de dónde viene cada contaminante es el primer paso para saber dónde actuar.
+
+---
+
+::: {.callout-note}
+**Fuente de datos:** Inventario Nacional de Emisiones de México (INEM) — SEMARNAT.  
+Descargado de [datos.gob.mx](https://www.datos.gob.mx) en abril de 2025.  
+Formato original: CSV. Procesamiento en Python (pandas).
+:::

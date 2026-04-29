@@ -1,0 +1,17 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Lo que el aire no te dice"
+  favicon: ""
+  navbar:
+    left:
+      - text: "Inicio"
+        href: index.qmd
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true

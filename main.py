@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import geopandas as gpd
 
-geojson_mx = gpd.read_file('mexicoHigh.json')
+geojson_mx = gpd.read_file('Datasets/mexicoHigh.json')
 
 
 plt.style.use('ggplot')
-df = pd.read_csv('d3_aire01_49_1_limpio.csv')
+df = pd.read_csv('Datasets/d3_aire01_49_1_limpio.csv')
 df.info()
 
 contaminantes = ['SO_2', 'CO', 'NOx', 'COV', 'PM_010', 'PM_2_5', 'NH_3']
@@ -30,9 +30,8 @@ fig1 = px.bar(
     hover_data={'Toneladas': ':.1f', 'Porcentaje': ':.1f'}
 )
 fig1.update_traces(textposition='none')
-fig1.write_html('emisiones_por_contaminante.html')
 fig1.show()
-fig1.write_html('emisiones_por_contaminante.html')
+fig1.write_html('Resources/emisiones_por_contaminante.html')
 
 
 df2 = df.groupby(['Entidad', 'Tipo_de_Fuente'])['PM_2_5'].sum().reset_index()
@@ -54,7 +53,7 @@ fig2 = px.choropleth(
 )
 fig2.update_geos(fitbounds='locations', visible=False)
 fig2.show()
-fig2.write_html('pm25_por_estado.html')
+fig2.write_html('Resources/pm25_por_estado.html')
 fig2b = px.bar(
     df2.sort_values('PM_2_5', ascending=False),
     x='Entidad',
@@ -67,7 +66,7 @@ fig2b = px.bar(
 )
 fig2b.update_xaxes(tickangle=45)
 fig2b.show()
-fig2b.write_html('pm25_por_fuente_estado.html')
+fig2b.write_html('Resources/pm25_por_fuente_estado.html')
  
 estados_clave = ['Ciudad de México', 'Estado de México', 'Jalisco', 'Nuevo León']
 df3 = df[df['Entidad'].isin(estados_clave)].groupby(['Entidad', 'Tipo_de_Fuente'])[['NH_3', 'NOx', 'PM_010']].sum().reset_index()
@@ -107,4 +106,4 @@ fig3.update_layout(
     )]
 )
 fig3.show()
-fig3.write_html('estados_clave_fuente.html')
+fig3.write_html('Resources/estados_clave_fuente.html')

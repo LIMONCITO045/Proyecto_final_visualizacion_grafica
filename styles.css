@@ -1,0 +1,79 @@
+/* Tipografía y layout general */
+body {
+  font-family: 'Georgia', serif;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #1a1a2e;
+}
+
+h1, h2, h3 {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+}
+
+/* Hero / título */
+.quarto-title-block {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 2rem;
+}
+
+.quarto-title-block .title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: white;
+}
+
+.quarto-title-block .subtitle {
+  font-size: 1.2rem;
+  color: #a8c8f0;
+  margin-top: 0.5rem;
+}
+
+/* Separadores de sección */
+hr {
+  border: none;
+  border-top: 2px solid #e8e8e8;
+  margin: 3rem 0;
+}
+
+/* Blockquotes como contexto narrativo */
+blockquote {
+  border-left: 4px solid #0f3460;
+  background: #f0f4f8;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+
+/* Contenedor de gráficas */
+.grafica-container {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1.5rem 0 2rem 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+/* TOC */
+#TOC {
+  font-size: 0.9rem;
+  border-right: 2px solid #e8e8e8;
+}
+
+/* Callout de fuentes */
+.callout-note {
+  font-size: 0.88rem;
+  background: #f8f9fa;
+  border-color: #0f3460;
+}
+
+/* Párrafos con mejor espaciado */
+p {
+  margin-bottom: 1.1rem;
+}
